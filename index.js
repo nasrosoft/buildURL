@@ -13,7 +13,7 @@ const buildUrl = ({ name, timestamps }) => {
   let [medianHours, medianMinutes, medianSeconds] =
     generateValidTime(validMedianTime);
   let generate = `https://server/record?name=${name}&duration=${hours}h${minutes}min${seconds}s&median=${medianHours}h${medianMinutes}min${medianSeconds}s;`;
-  return console.log(generate);
+  console.log(generate);
 };
 buildUrl({
   name: "toto",
