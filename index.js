@@ -1,7 +1,7 @@
 const generateValidTime = (validTime) => {
-  hours = new Date(validTime * 1000).getHours();
-  minutes = new Date(validTime * 1000).getMinutes();
-  seconds = new Date(validTime * 1000).getSeconds();
+  let hours = new Date(validTime * 1000).getHours();
+  let minutes = new Date(validTime * 1000).getMinutes();
+  let seconds = new Date(validTime * 1000).getSeconds();
   return [hours, minutes, seconds];
 };
 const buildUrl = ({ name, timestamps }) => {
