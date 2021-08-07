@@ -8,7 +8,13 @@ const buildUrl = ({ name, timestamps }) => {
   let validTimestamps =
     timestamps.sort()[timestamps.length - 1] - timestamps[0];
   let validMedianTime =
-    timestamps.sort()[Math.floor(timestamps.length / 2)] - timestamps[0];
+    timestamps.sort() % 2 == 0
+      ? timestamps.sort()[Math.floor(timestamps.length / 2)] - timestamps[0]
+      : Math.floor(
+          (timestamps.sort()[Math.floor(timestamps.length / 2)] +
+            timestamps.sort()[Math.floor(timestamps.length / 2)]) /
+            2
+        ) - timestamps[0];
   let [hours, minutes, seconds] = generateValidTime(validTimestamps);
   let [medianHours, medianMinutes, medianSeconds] =
     generateValidTime(validMedianTime);
@@ -17,5 +23,5 @@ const buildUrl = ({ name, timestamps }) => {
 };
 buildUrl({
   name: "toto",
-  timestamps: [1508349990, 1508350000, 1508357300],
+  timestamps: [1508349990, 1508350000, 1508357300, 1508357300],
 });
